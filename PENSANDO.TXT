@@ -1,0 +1,18 @@
+Pesamientos:
+
+*los arreglos pueden estar adentro de los estudiante, hay que creacar metodos para poder agregar en los estudiantes.
+
+*Los cursos deben de estar en un areglo.
+
+*Hay que usar una matriz de String para poder conseguir mayor facilidad.
+
+*Encontrar una forma de como convertir un String con numeros a entero.
+#Encontrar una forma de convertir un boolean a String y viceversa
+
+*Hacer codigo hasta el punto cuatro.
+-------------------------------------------------------------------------------------
+*Hacer un metodo para poder sumar todas notas de una vez.
+
+ 
+
+
