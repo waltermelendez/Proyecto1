@@ -13,12 +13,25 @@ public class Estudiante {
     private String Nombre;
     private int Telefono;
     private String Correo;
+    private boolean Estado;
 
     public Estudiante(int Carnet, String Nombre, int Telefono, String Correo) {
         this.Carnet = Carnet;
         this.Nombre = Nombre;
         this.Telefono = Telefono;
         this.Correo = Correo;
+        Estado=true;
+    }
+
+    public Estudiante() {
+    }
+
+    public boolean isEstado() {
+        return Estado;
+    }
+
+    public void setEstado(boolean Estado) {
+        this.Estado = Estado;
     }
     
     public int getCarnet() {

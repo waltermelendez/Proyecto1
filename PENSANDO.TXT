@@ -2,7 +2,7 @@ Pesamientos:
 
 *los arreglos pueden estar adentro de los estudiante, hay que creacar metodos para poder agregar en los estudiantes.
 
-*Los cursos deben de estar en un areglo.
+#Los cursos deben de estar en un areglo.
 
 *Hay que usar una matriz de String para poder conseguir mayor facilidad.
 
@@ -12,6 +12,11 @@ Pesamientos:
 *Hacer codigo hasta el punto cuatro.
 -------------------------------------------------------------------------------------
 *Hacer un metodo para poder sumar todas notas de una vez.
+
+
+
+
+# == Listo.
 
  
 

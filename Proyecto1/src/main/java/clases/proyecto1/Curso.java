@@ -12,11 +12,21 @@ public class Curso {
     private  int CodigoCurso;
     private int creditos;
     private String Nombre;
+    private boolean estado;
 
     public Curso(int CodigoCurso, int creditos, String Nombre) {
         this.CodigoCurso = CodigoCurso;
         this.creditos = creditos;
         this.Nombre = Nombre;
+        estado=true;
+    }
+
+    public Curso() {
+    }
+
+    @Override
+    public String toString() {
+        return "Curso {" + "CodigoCurso=" + CodigoCurso + ", creditos=" + creditos + ", Nombre=" + Nombre + ", estado=" + estado + '}';
     }
 
     
@@ -43,5 +53,14 @@ public class Curso {
     public void setNombre(String Nombre) {
         this.Nombre = Nombre;
     }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+    
     
 }
