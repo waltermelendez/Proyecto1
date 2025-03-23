@@ -9,6 +9,9 @@ Pesamientos:
 *Encontrar una forma de como convertir un String con numeros a entero.
 #Encontrar una forma de convertir un boolean a String y viceversa
 
+*Al ingresar un nuevo alumno como mataeria, hay que crear un método o forma de como hacer que la tabla asigne un espacio para cada estudiante y para cada 
+materia
+
 *Hacer codigo hasta el punto cuatro.
 -------------------------------------------------------------------------------------
 *Hacer un metodo para poder sumar todas notas de una vez.

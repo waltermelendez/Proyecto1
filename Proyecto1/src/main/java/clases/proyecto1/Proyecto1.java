@@ -27,6 +27,7 @@ public class Proyecto1 {
         Arbol uno = new Arbol();
         Scanner Entrada = new Scanner(System.in);
         Scanner Nombre=new Scanner(System.in);
+        Scanner Axuliar = new Scanner(System.in);
         //Cursos pre asignados
         Cursos[0]= new Curso(1,6,"Precalculo");
         Cursos[1]= new Curso(2,6,"Calculo I");
@@ -43,6 +44,7 @@ public class Proyecto1 {
         int dato1=0;
         String correo="";
         String nombre="";
+        String tipo="";
         boolean est=true;
         do {      
             System.out.println("diga una opc");
@@ -97,7 +99,24 @@ public class Proyecto1 {
                         }
                     }
                 }
-                case 4 ->{
+                case 4->{
+                //Activacion de cursos
+                    for (int i = 0; i < CU; i++) {
+                        if (!Cursos[i].isEstado()) {
+                            System.out.println(Cursos[i].getNombre());
+                        }
+                    }
+                    System.out.println("Diga el nombre del curso que desea activar");
+                    nombre=Nombre.nextLine();
+                    for (int i = 0; i < CU; i++) {
+                        if (Cursos[i].getNombre().equals(nombre)) {
+                            Cursos[i].setEstado(true);
+                            System.out.println("Se ha activado el curso: "+Cursos[i].getNombre());
+                            break;
+                        }
+                    }
+                }
+                case 5 ->{
                 //Desactivacion de Estudiantes
                     for (int i = 0; i < ES; i++) {
                         if (Estudiantes[i].isEstado()) {
@@ -109,9 +128,62 @@ public class Proyecto1 {
                     for (int i = 0; i < ES; i++) {
                         if (Estudiantes[i].getCarnet()==dato) {
                             Estudiantes[i].setEstado(false);
-                            System.out.println("Se ha desactivado al estudiante: "+Estudiantes[i].getNombre());
+                            System.out.println("El nombre del estudiante que fue desactivado fue de:"+ Estudiantes[i].getNombre());
+                            break;
+                            
                         }
                     }
+                }
+                case 6->
+                {
+                //Activacion de estudiantes
+                    for (int i = 0; i < ES; i++) {
+                        if (!Estudiantes[i].isEstado()) {
+                            System.out.println(Estudiantes[i].getNombre()+" "+Estudiantes[i].getNombre());
+                        }
+                    }
+                    System.out.println("Diga el nombre del estudiantes que desea activar");
+                    dato=Entrada.nextInt();
+                    for (int i = 0; i < ES; i++) {
+                        if (Estudiantes[i].getCarnet()==dato) {
+                           Estudiantes[i].setEstado(true);
+                           System.out.println("Se ha activado al estudiante "+ Estudiantes[i].getCarnet());
+                           break;
+                            
+                        }
+                    }
+                    
+                }
+                case 7 ->{
+                //Ingreso de notas
+                boolean Nom = false;
+                
+                boolean Cu=false;
+                
+                    System.out.println("Diga el carnet del estudiante:");
+                    dato=Entrada.nextInt();
+                    
+                    System.out.println("Diga el carnet del estudiante:");
+                    correo=Nombre.nextLine();
+                    
+                    System.out.println("Diga el nombre del curso a ingresar notas");
+                    tipo= Axuliar.nextLine();
+                    for (int i = 0; i < CU; i++) {
+                        if (Estudiantes[i].getCarnet()==dato && Estudiantes[i].getNombre().equals(nombre)) {
+                            Nom=true;
+                        }
+                        if (Cursos[i].getNombre().equals(tipo)) {
+                            Cu=true;
+                        }
+                    }
+                    if (Cu && Nom) {//<= Agregar metodo para agregar mas notas del cada estudiante
+                        
+                    }else{
+                        System.out.println("Alguno de los datos a abuscar no esta dispobible");
+                    }
+                    
+                    //Agregar la parte de validacion la asignacion
+                    
                 }
                 default -> {
                     System.out.println("opcion no disponible.");
