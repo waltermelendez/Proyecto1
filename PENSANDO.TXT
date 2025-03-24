@@ -1,8 +1,9 @@
 Pesamientos:
 
-*los arreglos pueden estar adentro de los estudiante, hay que creacar metodos para poder agregar en los estudiantes.
+#los arreglos pueden estar adentro de los estudiante, hay que creacar metodos para poder agregar en los estudiantes.
 
 #Los cursos deben de estar en un areglo.
+
 
 *Hay que usar una matriz de String para poder conseguir mayor facilidad.
 
@@ -13,6 +14,7 @@ Pesamientos:
 materia
 
 *Hacer codigo hasta el punto cuatro.
+*El arbol binario es aparte al arreglo.
 -------------------------------------------------------------------------------------
 *Hacer un metodo para poder sumar todas notas de una vez.
 
@@ -20,6 +22,8 @@ materia
 
 
 # == Listo.
+---------------------------------------------
+Verde-Listo
 
  
 
