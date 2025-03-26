@@ -15,6 +15,7 @@ public class Proyecto1 {
 
     public static void main(String[] args) {
         Curso [] Cursos = new Curso [20];
+        Arbol asginacion = new Arbol();
         
         Estudiante [] Estudiantes = new Estudiante [20];
         Estudiantes[0]=new Estudiante(3001,"Monica Paz",22334451,"mpaz@url.edu.gt");
@@ -23,11 +24,12 @@ public class Proyecto1 {
         Estudiantes[3]=new Estudiante(3004,"Luisa Rodas",22334454,"lrodas@url.edu.gt");
         Estudiantes[4]=new Estudiante(3005,"Rodrigo Villatoro",22334455,"rvillatoro@url.edu.gt");
         
-        //El arbol debe de esta en cada estudiante como arreglo
-        Arbol uno = new Arbol();
+        
+        
         Scanner Entrada = new Scanner(System.in);
         Scanner Nombre=new Scanner(System.in);
         Scanner Axuliar = new Scanner(System.in);
+        
         //Cursos pre asignados
         Cursos[0]= new Curso(1,6,"Precalculo");
         Cursos[1]= new Curso(2,6,"Calculo I");
@@ -45,7 +47,9 @@ public class Proyecto1 {
         String correo="";
         String nombre="";
         String tipo="";
+        
         boolean est=true;
+        boolean ver=true;
         do {      
             System.out.println("diga una opc");
             opc=Entrada.nextInt();
@@ -163,26 +167,51 @@ public class Proyecto1 {
                     System.out.println("Diga el carnet del estudiante:");
                     dato=Entrada.nextInt();
                     
-                    System.out.println("Diga el carnet del estudiante:");
+                    System.out.println("Diga el nombre del estudiante:");
                     correo=Nombre.nextLine();
                     
                     System.out.println("Diga el nombre del curso a ingresar notas");
                     tipo= Axuliar.nextLine();
                     for (int i = 0; i < CU; i++) {
-                        if (Estudiantes[i].getCarnet()==dato && Estudiantes[i].getNombre().equals(nombre)) {
+                        if ((Estudiantes[i].getCarnet()==dato)&& Estudiantes[i].getNombre().equals(correo)) {
                             Nom=true;
+                            dato1=i;
                         }
+                        
                         if (Cursos[i].getNombre().equals(tipo)) {
                             Cu=true;
                         }
                     }
                     if (Cu && Nom) {//<= Agregar metodo para agregar mas notas del cada estudiante
-                        
+                        asginacion.agregar_nodo(Estudiantes[dato1].getCarnet());
                     }else{
                         System.out.println("Alguno de los datos a abuscar no esta dispobible");
                     }
                     
                     //Agregar la parte de validacion la asignacion
+                    
+                }
+                case 8->
+                {
+                    System.out.println("Diga el curso que desea asignar");
+                    nombre=Nombre.nextLine();
+                    for (int i = 0; i < Cursos.length; i++) {
+                        if (nombre.equals(Cursos[i].getNombre())) {
+                            System.out.println("El no se puede agregar una clase que ya exisite.");
+                            ver=false;
+                            break;
+                        }
+                    }
+                    if (ver) {
+                        if (CU<20) {
+                            CU++;
+                        Cursos[CU].setNombre(nombre);
+                        System.out.println("Se ha aniadido el curso en el ");
+                        }else{
+                            System.out.println("Ya no es posible agregar mas cursos.");
+                        }
+                        
+                    }
                     
                 }
                 default -> {
