@@ -17,14 +17,16 @@ materia
 *El arbol binario es aparte al arreglo.
 -------------------------------------------------------------------------------------
 *Hacer un metodo para poder sumar todas notas de una vez.
-
-
+*El arbol binario es independiente
+*La asignación es cuando no se tiene todavía una nota final o de examen de recuperación.
 
 
 # == Listo.
 ---------------------------------------------
 Verde-Listo
-
+Naranja -instrucciones simples
+Amarillo-Parcialmente listo
+Azul Impornatnte
  
 
 

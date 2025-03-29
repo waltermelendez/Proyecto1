@@ -14,13 +14,15 @@ public class Estudiante {
     private int Telefono;
     private String Correo;
     private boolean Estado;
+    private String  [] [] tab= new String [20][8];
 
-    public Estudiante(int Carnet, String Nombre, int Telefono, String Correo) {
+    public Estudiante(int Carnet, String Nombre, int Telefono, String Correo,String [] [] Tab) {
         this.Carnet = Carnet;
         this.Nombre = Nombre;
         this.Telefono = Telefono;
         this.Correo = Correo;
         Estado=true;
+        this.tab=Tab;
     }
 
     public Estudiante() {
@@ -66,4 +68,18 @@ public class Estudiante {
         this.Correo = Correo;
     }
     
+    public void AgregarTabla(int nota){
+       int i =1;
+       int j=1;
+    
+    }
+    public void AgregarMateria(String Materia){
+    int j=1;
+        if (j<20) {
+           tab [j][0]=Materia; 
+           j++;
+        }else{
+            System.out.println("Ya no se puede llevar mas cursos");
+        }
+    }
 }

@@ -16,13 +16,33 @@ public class Proyecto1 {
     public static void main(String[] args) {
         Curso [] Cursos = new Curso [20];
         Arbol asginacion = new Arbol();
+        String [] [] Tabla = new String [20][8];
+        for (int i = 0; i < Tabla.length; i++) {
+            for (int j = 0; j < 8; j++) {
+                Tabla[i][j]="X";
+            }
+        }
+        Tabla[0][0]="Curso";
+        Tabla[0][1]="PP";
+        Tabla[0][2]="SP";
+        Tabla[0][3]="ACT";
+        Tabla[0][4]="EF";
+        Tabla[0][5]="ER";
+        Tabla[0][6]="Curso";
+        Tabla[0][7]="NF";
         
+        for (int i = 0; i < Tabla.length; i++) {
+            for (int j = 0; j < 8; j++) {
+                System.out.print(Tabla[i][j]+" ");
+            }
+            System.out.println("");
+        }
         Estudiante [] Estudiantes = new Estudiante [20];
-        Estudiantes[0]=new Estudiante(3001,"Monica Paz",22334451,"mpaz@url.edu.gt");
-        Estudiantes[1]=new Estudiante(3002,"Mateo Moscoso",22334452,"mmoscoso@url.edu.gt");
-        Estudiantes[2]=new Estudiante(3003,"Daniela Rodríguez",22334453,"drodriguez@url.edu.gt");
-        Estudiantes[3]=new Estudiante(3004,"Luisa Rodas",22334454,"lrodas@url.edu.gt");
-        Estudiantes[4]=new Estudiante(3005,"Rodrigo Villatoro",22334455,"rvillatoro@url.edu.gt");
+        Estudiantes[0]=new Estudiante(3001,"Monica Paz",22334451,"mpaz@url.edu.gt",Tabla);
+        Estudiantes[1]=new Estudiante(3002,"Mateo Moscoso",22334452,"mmoscoso@url.edu.gt",Tabla);
+        Estudiantes[2]=new Estudiante(3003,"Daniela Rodríguez",22334453,"drodriguez@url.edu.gt",Tabla);
+        Estudiantes[3]=new Estudiante(3004,"Luisa Rodas",22334454,"lrodas@url.edu.gt",Tabla);
+        Estudiantes[4]=new Estudiante(3005,"Rodrigo Villatoro",22334455,"rvillatoro@url.edu.gt",Tabla);
         
         
         
@@ -39,7 +59,7 @@ public class Proyecto1 {
          
         int CU=5;
         int ES=5;
-        String [] [] Tabla = new String [20][8];
+        
         
         int dato=0;
         int opc =0;
@@ -81,7 +101,7 @@ public class Proyecto1 {
                         dato1=Entrada.nextInt();
                         System.out.println("Diga el correo del estudiante");
                         correo=Nombre.nextLine();
-                        Estudiantes[ES]= new Estudiante(dato,nombre,dato1,correo);
+                        Estudiantes[ES]= new Estudiante(dato,nombre,dato1,correo,Tabla);
                     } else {
                          System.out.println("Ya no se puede asignar mas estudiantes.");
                     }
@@ -183,12 +203,16 @@ public class Proyecto1 {
                         }
                     }
                     if (Cu && Nom) {//<= Agregar metodo para agregar mas notas del cada estudiante
+                         //Agregar la parte de validacion la asignacion
+                         
                         asginacion.agregar_nodo(Estudiantes[dato1].getCarnet());
+                        
                     }else{
                         System.out.println("Alguno de los datos a abuscar no esta dispobible");
                     }
                     
-                    //Agregar la parte de validacion la asignacion
+                   
+                    
                     
                 }
                 case 8->
@@ -214,6 +238,7 @@ public class Proyecto1 {
                     }
                     
                 }
+                
                 default -> {
                     System.out.println("opcion no disponible.");
                 }
