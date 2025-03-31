@@ -59,4 +59,23 @@ return raiz == null;
         }
     
     }
+    
+    public int buscarNodo(int d){
+        Nodo aux = raiz;
+        if (aux==null) {
+            return 0;
+        } else {
+            while (aux.Carnet!=d) {
+                if (d<aux.Carnet) {
+                    aux=aux.Izq;
+                } else {
+                    aux=aux.Der;
+                }
+            }
+            if (aux==null) {
+                return 0;
+            }
+            return aux.Carnet;
+        }
+    }
 }

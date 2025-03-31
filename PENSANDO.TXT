@@ -13,13 +13,24 @@ Pesamientos:
 *Al ingresar un nuevo alumno como mataeria, hay que crear un método o forma de como hacer que la tabla asigne un espacio para cada estudiante y para cada 
 materia
 
-*Hacer codigo hasta el punto cuatro.
-*El arbol binario es aparte al arreglo.
+#Hacer codigo hasta el punto cuatro.
+#El arbol binario es aparte al arreglo.
 -------------------------------------------------------------------------------------
 *Hacer un metodo para poder sumar todas notas de una vez.
 *El arbol binario es independiente
 *La asignación es cuando no se tiene todavía una nota final o de examen de recuperación.
 
+COSAS POR HACER:
+HACER EL MENU,
+COMPROBAR ERRORES EN LAS FUNCIONES DE AGREGAR NOTAS Y MATERIAS
+BUSCAR FALLOS EN EL CODIGO PRINCIPAL
+HACER LA DOCUMENTACION
+HACER METODO PARA LA SUMA DE LA NOTA FINAL
+LLenar los demas estudiantes
+
+
+\POSBILES
+HACER LOS PUNTOS EXTRAS.
 
 # == Listo.
 ---------------------------------------------

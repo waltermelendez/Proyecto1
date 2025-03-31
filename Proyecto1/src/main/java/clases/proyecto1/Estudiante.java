@@ -14,7 +14,7 @@ public class Estudiante {
     private int Telefono;
     private String Correo;
     private boolean Estado;
-    private String  [] [] tab= new String [20][8];
+    private String  [] [] tab= new String [20][7];
 
     public Estudiante(int Carnet, String Nombre, int Telefono, String Correo,String [] [] Tab) {
         this.Carnet = Carnet;
@@ -68,18 +68,53 @@ public class Estudiante {
         this.Correo = Correo;
     }
     
-    public void AgregarTabla(int nota){
-       int i =1;
-       int j=1;
+    public void AgregarTabla(int nota){//Metodo para agregar notas en la matriz
+       
+       String convert = Integer.toString(nota);
+        for (int i = 1; i < 20; i++) {
+            for (int j = 1; j < 6; j++) {
+                if (tab[i][j].equals("X")) {
+                    tab[i][j]=convert;
+                    System.out.println(tab[i][j]);
+                    
+                    i=20;//Break del ciclo de i
+                    break;
+                }
+                
+                
+            }
+        }
+       //metodo de suma de la nota final
     
     }
-    public void AgregarMateria(String Materia){
-    int j=1;
+    public void AgregarMateria(String Materia){ //Metodo para agregar materias en la matriz
+    /*int j=1;
         if (j<20) {
            tab [j][0]=Materia; 
            j++;
         }else{
             System.out.println("Ya no se puede llevar mas cursos");
+        }*/
+        for (int i = 1; i < 20; i++) {
+            if (tab[i][0].equals("X")) {
+                tab[i][0]=Materia;
+                break;
+            } 
+        }
+    }
+    //Funcion para ver el curso a buscar
+    public String getCurso(int i){
+    String r= tab[i][0];
+    return r;
+    }
+    
+    //Imrprimir la tabla de cada estudiante
+    public void mostrarTabla(){
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 7; j++) {
+                System.out.print("| "+tab[i][j]+" |");
+            }
+            System.out.println(" ");
         }
     }
 }
