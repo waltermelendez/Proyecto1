@@ -16,8 +16,8 @@ materia
 #Hacer codigo hasta el punto cuatro.
 #El arbol binario es aparte al arreglo.
 -------------------------------------------------------------------------------------
-*Hacer un método para poder sumar todas notas de una vez.
-*El arbol binario es independiente
+#Hacer un método para poder sumar todas notas de una vez.
+#El arbol binario es independiente
 *La asignación es cuando no se tiene todavía una nota final o de examen de recuperación.
 
 COSAS POR HACER:

@@ -72,10 +72,10 @@ public class Estudiante {
        
        String convert = Integer.toString(nota);
         for (int i = 1; i < 20; i++) {
-            for (int j = 1; j < 6; j++) {
-                if (tab[i][j].equals("X")) {
-                    tab[i][j]=convert;
-                    System.out.println(tab[i][j]);
+            for (int j = 1; j < 5; j++) {
+                if (this.tab[i][j].equals("0")) {
+                    this.tab[i][j]=convert;
+                    //System.out.println(tab[i][j]);
                     
                     i=20;//Break del ciclo de i
                     break;
@@ -85,7 +85,18 @@ public class Estudiante {
             }
         }
        //metodo de suma de la nota final
-    
+       int num=0;
+       int total=0;
+        for (int i = 1; i < 20; i++) {
+            for (int j = 1; j < 6; j++) {
+                convert=this.tab[i][j];
+                num=Integer.parseInt(convert);
+                total=total+num;
+            }
+            this.tab[i][6]=Integer.toString(total);
+            total =0;
+            
+        }
     }
     public void AgregarMateria(String Materia){ //Metodo para agregar materias en la matriz
     /*int j=1;
@@ -96,7 +107,7 @@ public class Estudiante {
             System.out.println("Ya no se puede llevar mas cursos");
         }*/
         for (int i = 1; i < 20; i++) {
-            if (tab[i][0].equals("X")) {
+            if (tab[i][0].equals("0")) {
                 tab[i][0]=Materia;
                 break;
             } 

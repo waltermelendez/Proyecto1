@@ -20,18 +20,18 @@ public class Proyecto1 {
         String[][] Tabla = new String[20][7];
         for (int i = 0; i < Tabla.length; i++) {
             for (int j = 0; j < 7; j++) {
-                Tabla[i][j] = "X";
+                Tabla[i][j] = "0";
             }
         }
         //Titulos de la tabla
-        Tabla[0][0] = "Curso";
-        Tabla[0][1] = "PP";
-        Tabla[0][2] = "SP";
-        Tabla[0][3] = "ACT";
-        Tabla[0][4] = "EF";
+        Tabla[0][0] = "Curso    ";
+        Tabla[0][1] = "PP   ";
+        Tabla[0][2] = "SP   ";
+        Tabla[0][3] = "ACT  ";
+        Tabla[0][4] = "EF   ";
         Tabla[0][5] = "ER";
         Tabla[0][6] = "NF";
-
+        
         //Estudiantes
         Estudiante[] Estudiantes = new Estudiante[20];
         Estudiantes[0] = new Estudiante(3001, "Monica Paz", 22334451, "mpaz@url.edu.gt", Tabla);
@@ -63,8 +63,8 @@ public class Proyecto1 {
         int ES = 5;//Contador de estudiantes
         
         //Verificador de la matriz
-//        for (int i = 1; i < 20; i++) {
-//            for (int j = 1; j < 7; j++) {
+//        for (int i = 0; i < 20; i++) {
+//            for (int j = 0; j < 7; j++) {
 //                System.out.print(", " + Tabla[i][j] + ", ");
 //            }
 //            System.out.println(" ,");
@@ -87,11 +87,19 @@ public class Proyecto1 {
         Estudiantes[2].AgregarTabla(10);
         Estudiantes[2].AgregarTabla(20);
         Estudiantes[2].AgregarTabla(10);
+        Estudiantes[2].mostrarTabla();
+        //Datos de estudiante 3003
+        System.out.println("------------------");
+        
         Estudiantes[0].AgregarMateria("Precalculo");
         Estudiantes[0].AgregarTabla(10);
         Estudiantes[0].AgregarTabla(15);
         Estudiantes[0].AgregarTabla(30);
         Estudiantes[0].AgregarTabla(30);
+        Estudiantes[0].mostrarTabla();
+        //Datos de estudiante 3001
+         System.out.println("------------------");
+        
         Estudiantes[1].AgregarMateria("Precalculo");
         Estudiantes[1].AgregarTabla(10);
         Estudiantes[1].AgregarTabla(15);
@@ -102,11 +110,17 @@ public class Proyecto1 {
         Estudiantes[1].AgregarTabla(10);
         Estudiantes[1].AgregarTabla(20);
         Estudiantes[1].AgregarTabla(10);
+        //Datos de estudiante 3002
+         System.out.println("------------------");
+        
         Estudiantes[3].AgregarMateria("Precalculo");
         Estudiantes[3].AgregarTabla(10);
         Estudiantes[3].AgregarTabla(15);
         Estudiantes[3].AgregarTabla(30);
         Estudiantes[3].AgregarTabla(30);
+        //Datos de estudiante 3003
+         System.out.println("------------------");
+        
         Estudiantes[4].AgregarMateria("Precalculo");
         Estudiantes[4].AgregarTabla(10);
         Estudiantes[4].AgregarTabla(15);
@@ -122,8 +136,8 @@ public class Proyecto1 {
         Estudiantes[4].AgregarTabla(10);
         Estudiantes[4].AgregarTabla(20);
         Estudiantes[4].AgregarTabla(10);
-        
         Estudiantes[4].mostrarTabla();
+        //Datos de estudiante 3005
         
         int dato = 0;
         int opc = 0;
