@@ -2,12 +2,12 @@ Pesamientos:
 
 #los arreglos pueden estar adentro de los estudiante, hay que creacar metodos para poder agregar en los estudiantes.
 
-#Los cursos deben de estar en un areglo.
+#Los cursos deben de estar en un arreglo.
 
 
-*Hay que usar una matriz de String para poder conseguir mayor facilidad.
+#Hay que usar una matriz de String para poder conseguir mayor facilidad.
 
-*Encontrar una forma de como convertir un String con numeros a entero.
+#Encontrar una forma de como convertir un String con numeros a entero.
 #Encontrar una forma de convertir un boolean a String y viceversa
 
 *Al ingresar un nuevo alumno como mataeria, hay que crear un método o forma de como hacer que la tabla asigne un espacio para cada estudiante y para cada 
@@ -16,12 +16,12 @@ materia
 #Hacer codigo hasta el punto cuatro.
 #El arbol binario es aparte al arreglo.
 -------------------------------------------------------------------------------------
-*Hacer un metodo para poder sumar todas notas de una vez.
+*Hacer un método para poder sumar todas notas de una vez.
 *El arbol binario es independiente
 *La asignación es cuando no se tiene todavía una nota final o de examen de recuperación.
 
 COSAS POR HACER:
-HACER EL MENU,
+#	HACER EL MENU,
 COMPROBAR ERRORES EN LAS FUNCIONES DE AGREGAR NOTAS Y MATERIAS
 BUSCAR FALLOS EN EL CODIGO PRINCIPAL
 HACER LA DOCUMENTACION

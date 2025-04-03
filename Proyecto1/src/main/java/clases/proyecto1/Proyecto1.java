@@ -17,7 +17,7 @@ public class Proyecto1 {
         Arbol asginacion = new Arbol();
         
         //Metodo para "llenar" la matriz
-        String[][] Tabla = new String[20][8];
+        String[][] Tabla = new String[20][7];
         for (int i = 0; i < Tabla.length; i++) {
             for (int j = 0; j < 7; j++) {
                 Tabla[i][j] = "X";
@@ -70,13 +70,60 @@ public class Proyecto1 {
 //            System.out.println(" ,");
 //        }
 
+
+//Datos de los extudiantes ya existentes en el programa
+        Estudiantes[2].AgregarMateria("Precalculo");
+        Estudiantes[2].AgregarTabla(10);
+        Estudiantes[2].AgregarTabla(15);
+        Estudiantes[2].AgregarTabla(30);
+        Estudiantes[2].AgregarTabla(30);
+        Estudiantes[2].AgregarMateria("Calculo 1");
+        Estudiantes[2].AgregarTabla(15);
+        Estudiantes[2].AgregarTabla(10);
+        Estudiantes[2].AgregarTabla(20);
+        Estudiantes[2].AgregarTabla(10);
+        Estudiantes[2].AgregarMateria("Fisica 1");
+        Estudiantes[2].AgregarTabla(10);
+        Estudiantes[2].AgregarTabla(10);
+        Estudiantes[2].AgregarTabla(20);
+        Estudiantes[2].AgregarTabla(10);
         Estudiantes[0].AgregarMateria("Precalculo");
         Estudiantes[0].AgregarTabla(10);
         Estudiantes[0].AgregarTabla(15);
         Estudiantes[0].AgregarTabla(30);
         Estudiantes[0].AgregarTabla(30);
-        //LLenar los demas estudiantes
+        Estudiantes[1].AgregarMateria("Precalculo");
+        Estudiantes[1].AgregarTabla(10);
+        Estudiantes[1].AgregarTabla(15);
+        Estudiantes[1].AgregarTabla(30);
+        Estudiantes[1].AgregarTabla(30);
+        Estudiantes[1].AgregarMateria("Calculo 1");
+        Estudiantes[1].AgregarTabla(15);
+        Estudiantes[1].AgregarTabla(10);
+        Estudiantes[1].AgregarTabla(20);
+        Estudiantes[1].AgregarTabla(10);
+        Estudiantes[3].AgregarMateria("Precalculo");
+        Estudiantes[3].AgregarTabla(10);
+        Estudiantes[3].AgregarTabla(15);
+        Estudiantes[3].AgregarTabla(30);
+        Estudiantes[3].AgregarTabla(30);
+        Estudiantes[4].AgregarMateria("Precalculo");
+        Estudiantes[4].AgregarTabla(10);
+        Estudiantes[4].AgregarTabla(15);
+        Estudiantes[4].AgregarTabla(30);
+        Estudiantes[4].AgregarTabla(30);
+        Estudiantes[4].AgregarMateria("Calculo 1");
+        Estudiantes[4].AgregarTabla(15);
+        Estudiantes[4].AgregarTabla(10);
+        Estudiantes[4].AgregarTabla(20);
+        Estudiantes[4].AgregarTabla(10);
+        Estudiantes[4].AgregarMateria("Fisica 1");
+        Estudiantes[4].AgregarTabla(10);
+        Estudiantes[4].AgregarTabla(10);
+        Estudiantes[4].AgregarTabla(20);
+        Estudiantes[4].AgregarTabla(10);
         
+        Estudiantes[4].mostrarTabla();
         
         int dato = 0;
         int opc = 0;
@@ -89,6 +136,15 @@ public class Proyecto1 {
         boolean ver = true;
         do {
             System.out.println("diga una opc");
+            System.out.println("1.... Asignacion de cursos.");
+            System.out.println("2.... Ingreso de estudiantes.");
+            System.out.println("3.... Desactivacion de cursos.");
+            System.out.println("4.... Activacion de cursos.");
+            System.out.println("5.... Desactivacion de estudiantes.");
+            System.out.println("6.... Activacion de cursos de estudaines");
+            System.out.println("7.... Ingreso de notas.");
+            System.out.println("8.... Listado de cursos asginados.");
+            
             opc = Entrada.nextInt();
             switch (opc) {
                 case 1 -> {
