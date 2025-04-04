@@ -10,8 +10,10 @@ import java.util.Scanner;
  *
  * @author walte
  */
+
 public class Proyecto1 {
 
+    
     public static void main(String[] args) {
         Curso[] Cursos = new Curso[20];
         Arbol asginacion = new Arbol();
@@ -34,11 +36,16 @@ public class Proyecto1 {
         
         //Estudiantes
         Estudiante[] Estudiantes = new Estudiante[20];
-        Estudiantes[0] = new Estudiante(3001, "Monica Paz", 22334451, "mpaz@url.edu.gt", Tabla);
-        Estudiantes[1] = new Estudiante(3002, "Mateo Moscoso", 22334452, "mmoscoso@url.edu.gt", Tabla);
-        Estudiantes[2] = new Estudiante(3003, "Daniela Rodríguez", 22334453, "drodriguez@url.edu.gt", Tabla);
-        Estudiantes[3] = new Estudiante(3004, "Luisa Rodas", 22334454, "lrodas@url.edu.gt", Tabla);
-        Estudiantes[4] = new Estudiante(3005, "Rodrigo Villatoro", 22334455, "rvillatoro@url.edu.gt", Tabla);
+        Estudiantes[0] = new Estudiante(3001, "Monica Paz", 22334451, "mpaz@url.edu.gt");
+        Estudiantes[0].setTab(Tabla);
+        Estudiantes[1] = new Estudiante(3002, "Mateo Moscoso", 22334452, "mmoscoso@url.edu.gt");
+        Estudiantes[1].setTab(Tabla);
+        Estudiantes[2] = new Estudiante(3003, "Daniela Rodríguez", 22334453, "drodriguez@url.edu.gt");
+        Estudiantes[2].setTab(Tabla);
+        Estudiantes[3] = new Estudiante(3004, "Luisa Rodas", 22334454, "lrodas@url.edu.gt");
+        Estudiantes[3].setTab(Tabla);
+        Estudiantes[4] = new Estudiante(3005, "Rodrigo Villatoro", 22334455, "rvillatoro@url.edu.gt");
+        Estudiantes[4].setTab(Tabla);
 
         //Scanners
         Scanner Entrada = new Scanner(System.in);
@@ -59,6 +66,9 @@ public class Proyecto1 {
         asginacion.agregar_nodo(3004);
         asginacion.agregar_nodo(3005);
 
+        
+       
+        
         int CU = 5;//Contador de cursos
         int ES = 5;//Contador de estudiantes
         
@@ -87,18 +97,18 @@ public class Proyecto1 {
         Estudiantes[2].AgregarTabla(10);
         Estudiantes[2].AgregarTabla(20);
         Estudiantes[2].AgregarTabla(10);
-        Estudiantes[2].mostrarTabla();
+       
         //Datos de estudiante 3003
-        System.out.println("------------------");
+       
         
         Estudiantes[0].AgregarMateria("Precalculo");
         Estudiantes[0].AgregarTabla(10);
         Estudiantes[0].AgregarTabla(15);
         Estudiantes[0].AgregarTabla(30);
         Estudiantes[0].AgregarTabla(30);
-        Estudiantes[0].mostrarTabla();
+      
         //Datos de estudiante 3001
-         System.out.println("------------------");
+         
         
         Estudiantes[1].AgregarMateria("Precalculo");
         Estudiantes[1].AgregarTabla(10);
@@ -111,7 +121,7 @@ public class Proyecto1 {
         Estudiantes[1].AgregarTabla(20);
         Estudiantes[1].AgregarTabla(10);
         //Datos de estudiante 3002
-         System.out.println("------------------");
+         
         
         Estudiantes[3].AgregarMateria("Precalculo");
         Estudiantes[3].AgregarTabla(10);
@@ -136,7 +146,7 @@ public class Proyecto1 {
         Estudiantes[4].AgregarTabla(10);
         Estudiantes[4].AgregarTabla(20);
         Estudiantes[4].AgregarTabla(10);
-        Estudiantes[4].mostrarTabla();
+        
         //Datos de estudiante 3005
         
         int dato = 0;
@@ -157,7 +167,9 @@ public class Proyecto1 {
             System.out.println("5.... Desactivacion de estudiantes.");
             System.out.println("6.... Activacion de cursos de estudaines");
             System.out.println("7.... Ingreso de notas.");
-            System.out.println("8.... Listado de cursos asginados.");
+            System.out.println("8.... Ingreso de asignaciones");
+            System.out.println("9.... Listado de cursos asignados por estudiante");
+            System.out.println("10... Salir");
             
             opc = Entrada.nextInt();
             switch (opc) {
@@ -188,7 +200,7 @@ public class Proyecto1 {
                         dato1 = Entrada.nextInt();
                         System.out.println("Diga el correo del estudiante");
                         correo = Nombre.nextLine();
-                        Estudiantes[ES] = new Estudiante(dato, nombre, dato1, correo, Tabla);
+                        Estudiantes[ES] = new Estudiante(dato, nombre, dato1, correo);
                         asginacion.agregar_nodo(Estudiantes[ES].getCarnet());
                         ES++;
                     } else {
@@ -301,10 +313,21 @@ public class Proyecto1 {
                         
                         for (int i = 0; i < ES; i++) {
                             if (tipo.equals(Estudiantes[i].getCurso(i))) {
-                                for (int j = 0; j < 8; j++) {
+                                for (int j = 0; j < 7; j++) {
                                     System.out.println("Diga la nota a agregar");
                                     dato = Entrada.nextInt();
                                     Estudiantes[i].AgregarTabla(dato);
+                                }
+                            }
+                        }
+                        //Agregar nota de evaluacion reposicion
+                        for (int i = 1; i < ES; i++) {
+                            for (int j = 1; j < 7; j++) {
+                                int convert = Integer.parseInt(Estudiantes[i].nota(j));
+                                if (convert <61) {
+                                    System.out.println("Diga la nota de evaluacion reposicion");
+                                    dato1=Entrada.nextInt();
+                                    Estudiantes[i].agregarER(dato1, j);
                                 }
                             }
                         }
@@ -336,6 +359,19 @@ public class Proyecto1 {
 
                     }
 
+                }
+                case 9->{
+                    //Mostar listado de cursos de los estudiantes
+                    for (int i = 0; i < ES; i++) {
+                        System.out.println("Los cursos asignados de: "+Estudiantes[i].getNombre()+" , "+Estudiantes[i].getCarnet());
+                        System.out.println("");
+                        Estudiantes[i].mostrarTabla();
+                        System.out.println("--------------------------------------------------------------");
+                    }
+                
+                }
+                case 10->{
+                est=false;
                 }
 
                 default -> {

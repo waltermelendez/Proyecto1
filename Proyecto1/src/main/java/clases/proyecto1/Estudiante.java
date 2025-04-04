@@ -16,15 +16,19 @@ public class Estudiante {
     private boolean Estado;
     private String  [] [] tab= new String [20][7];
 
-    public Estudiante(int Carnet, String Nombre, int Telefono, String Correo,String [] [] Tab) {
+    public Estudiante(int Carnet, String Nombre, int Telefono, String Correo) {
         this.Carnet = Carnet;
         this.Nombre = Nombre;
         this.Telefono = Telefono;
         this.Correo = Correo;
         Estado=true;
-        this.tab=Tab;
+       this.tab=tab;
     }
 
+    public void setTab(String[][] tab) {
+        this.tab = tab;
+    }
+    
     public Estudiante() {
     }
 
@@ -93,25 +97,42 @@ public class Estudiante {
                 num=Integer.parseInt(convert);
                 total=total+num;
             }
+            
             this.tab[i][6]=Integer.toString(total);
             total =0;
             
         }
+        
     }
+    public String nota(int i){//Motodo para ver la bota final
+    return tab[i][6];
+    }
+    
+    public void agregarER(int dato1,int i){
+        String convert= Integer.toString(dato1);
+    tab[i][5]=convert;
+    //metodo de suma de la nota final
+    
+    
+       int num=0;
+       int total=0;
+       for (int k = 1; k < 6; k++) {
+                convert=this.tab[i][k];
+                num=Integer.parseInt(convert);
+                total=total+num;
+            }
+    this.tab[i][6]=Integer.toString(total);
+    }
+    
     public void AgregarMateria(String Materia){ //Metodo para agregar materias en la matriz
-    /*int j=1;
-        if (j<20) {
-           tab [j][0]=Materia; 
-           j++;
-        }else{
-            System.out.println("Ya no se puede llevar mas cursos");
-        }*/
-        for (int i = 1; i < 20; i++) {
+     for (int i = 1; i < 20; i++) {
+
             if (tab[i][0].equals("0")) {
                 tab[i][0]=Materia;
                 break;
             } 
         }
+  
     }
     //Funcion para ver el curso a buscar
     public String getCurso(int i){
@@ -128,4 +149,6 @@ public class Estudiante {
             System.out.println(" ");
         }
     }
+    
+    
 }
