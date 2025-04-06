@@ -10,14 +10,12 @@ import java.util.Scanner;
  *
  * @author walte
  */
-
 public class Proyecto1 {
 
-    
     public static void main(String[] args) {
         Curso[] Cursos = new Curso[20];
         Arbol asginacion = new Arbol();
-        
+
         //Metodo para "llenar" la matriz
         String[][] Tabla = new String[20][7];
         for (int i = 0; i < Tabla.length; i++) {
@@ -33,19 +31,14 @@ public class Proyecto1 {
         Tabla[0][4] = "EF   ";
         Tabla[0][5] = "ER";
         Tabla[0][6] = "NF";
-        
+
         //Estudiantes
         Estudiante[] Estudiantes = new Estudiante[20];
-        Estudiantes[0] = new Estudiante(3001, "Monica Paz", 22334451, "mpaz@url.edu.gt");
-        Estudiantes[0].setTab(Tabla);
-        Estudiantes[1] = new Estudiante(3002, "Mateo Moscoso", 22334452, "mmoscoso@url.edu.gt");
-        Estudiantes[1].setTab(Tabla);
-        Estudiantes[2] = new Estudiante(3003, "Daniela Rodríguez", 22334453, "drodriguez@url.edu.gt");
-        Estudiantes[2].setTab(Tabla);
-        Estudiantes[3] = new Estudiante(3004, "Luisa Rodas", 22334454, "lrodas@url.edu.gt");
-        Estudiantes[3].setTab(Tabla);
-        Estudiantes[4] = new Estudiante(3005, "Rodrigo Villatoro", 22334455, "rvillatoro@url.edu.gt");
-        Estudiantes[4].setTab(Tabla);
+        Estudiantes[0] = new Estudiante(3001, "Monica Paz", 22334451, "mpaz@url.edu.gt", Tabla);
+        Estudiantes[1] = new Estudiante(3002, "Mateo Moscoso", 22334452, "mmoscoso@url.edu.gt", Tabla);
+        Estudiantes[2] = new Estudiante(3003, "Daniela Rodríguez", 22334453, "drodriguez@url.edu.gt", Tabla);
+        Estudiantes[3] = new Estudiante(3004, "Luisa Rodas", 22334454, "lrodas@url.edu.gt", Tabla);
+        Estudiantes[4] = new Estudiante(3005, "Rodrigo Villatoro", 22334455, "rvillatoro@url.edu.gt", Tabla);
 
         //Scanners
         Scanner Entrada = new Scanner(System.in);
@@ -59,99 +52,94 @@ public class Proyecto1 {
         Cursos[3] = new Curso(1, 6, "Calculo II");
         Cursos[4] = new Curso(1, 4, "Fisica II");
 
-        
-
-        
-       
-        
         int CU = 5;//Contador de cursos
         int ES = 5;//Contador de estudiantes
-        
-        //Verificador de la matriz
-//        for (int i = 0; i < 20; i++) {
-//            for (int j = 0; j < 7; j++) {
-//                System.out.print(", " + Tabla[i][j] + ", ");
-//            }
-//            System.out.println(" ,");
-//        }
-
 
 //Datos de los extudiantes ya existentes en el programa
-        Estudiantes[2].AgregarMateria("Precalculo");
-        Estudiantes[2].AgregarTabla(10);
-        Estudiantes[2].AgregarTabla(15);
-        Estudiantes[2].AgregarTabla(30);
-        Estudiantes[2].AgregarTabla(30);
-        Estudiantes[2].AgregarMateria("Calculo 1");
-        Estudiantes[2].AgregarTabla(15);
-        Estudiantes[2].AgregarTabla(10);
-        Estudiantes[2].AgregarTabla(20);
-        Estudiantes[2].AgregarTabla(10);
-        Estudiantes[2].AgregarMateria("Fisica 1");
-        Estudiantes[2].AgregarTabla(10);
-        Estudiantes[2].AgregarTabla(10);
-        Estudiantes[2].AgregarTabla(20);
-        Estudiantes[2].AgregarTabla(10);
-       
+        Estudiantes[2].setnombreM(1, 0, "Precalculo");
+        Estudiantes[2].setdato(1, 1, 10);
+        Estudiantes[2].setdato(1, 2, 15);
+        Estudiantes[2].setdato(1, 3, 30);
+        Estudiantes[2].setdato(1, 4, 30);
+        Estudiantes[2].setdato(1, 6, Estudiantes[2].AgregarTabla(1));
+
+        Estudiantes[2].setnombreM(2, 0, "Calculo I");
+        Estudiantes[2].setdato(2, 1, 15);
+        Estudiantes[2].setdato(2, 2, 10);
+        Estudiantes[2].setdato(2, 3, 20);
+        Estudiantes[2].setdato(2, 4, 10);
+        Estudiantes[2].setdato(2, 6, Estudiantes[2].AgregarTabla(1));
+
+        Estudiantes[2].setnombreM(1, 0, "Fisica I");
+        Estudiantes[2].setdato(1, 1, 10);
+        Estudiantes[2].setdato(1, 2, 10);
+        Estudiantes[2].setdato(1, 3, 20);
+        Estudiantes[2].setdato(1, 4, 10);
+        Estudiantes[2].setdato(1, 6, Estudiantes[2].AgregarTabla(1));
         //Datos de estudiante 3003
-       
-        
-        Estudiantes[0].AgregarMateria("Precalculo");
-        Estudiantes[0].AgregarTabla(10);
-        Estudiantes[0].AgregarTabla(15);
-        Estudiantes[0].AgregarTabla(30);
-        Estudiantes[0].AgregarTabla(30);
-      
+
+        Estudiantes[0].setnombreM(1, 0, "Precalculo");
+        Estudiantes[0].setdato(1, 1, 10);
+        Estudiantes[0].setdato(1, 2, 15);
+        Estudiantes[0].setdato(1, 3, 30);
+        Estudiantes[0].setdato(1, 4, 30);
+        Estudiantes[0].setdato(1, 6, Estudiantes[0].AgregarTabla(1));
         //Datos de estudiante 3001
-         
+
+        Estudiantes[1].setnombreM(1, 0, "Precalculo");
+        Estudiantes[1].setdato(1, 1, 10);
+        Estudiantes[1].setdato(1, 2, 15);
+        Estudiantes[1].setdato(1, 3, 30);
+        Estudiantes[1].setdato(1, 4, 30);
+        Estudiantes[1].setdato(1, 6, Estudiantes[1].AgregarTabla(1));
+
         
-        Estudiantes[1].AgregarMateria("Precalculo");
-        Estudiantes[1].AgregarTabla(10);
-        Estudiantes[1].AgregarTabla(15);
-        Estudiantes[1].AgregarTabla(30);
-        Estudiantes[1].AgregarTabla(30);
-        Estudiantes[1].AgregarMateria("Calculo 1");
-        Estudiantes[1].AgregarTabla(15);
-        Estudiantes[1].AgregarTabla(10);
-        Estudiantes[1].AgregarTabla(20);
-        Estudiantes[1].AgregarTabla(10);
+        Estudiantes[1].setnombreM(2, 0, "Calculo I");
+        Estudiantes[1].setdato(2, 1, 15);
+        Estudiantes[1].setdato(2, 2, 10);
+        Estudiantes[1].setdato(2, 3, 20);
+        Estudiantes[1].setdato(2, 4, 10);
+        Estudiantes[1].setdato(2, 6, Estudiantes[1].AgregarTabla(1));
+
         //Datos de estudiante 3002
-         
-        
-        Estudiantes[3].AgregarMateria("Precalculo");
-        Estudiantes[3].AgregarTabla(10);
-        Estudiantes[3].AgregarTabla(15);
-        Estudiantes[3].AgregarTabla(30);
-        Estudiantes[3].AgregarTabla(30);
+        Estudiantes[3].setnombreM(1, 0, "Precalculo");
+        Estudiantes[3].setdato(1, 1, 10);
+        Estudiantes[3].setdato(1, 2, 15);
+        Estudiantes[3].setdato(1, 3, 30);
+        Estudiantes[3].setdato(1, 4, 30);
+        Estudiantes[3].setdato(1, 6, Estudiantes[3].AgregarTabla(1));
         //Datos de estudiante 3003
-         System.out.println("------------------");
-        
-        Estudiantes[4].AgregarMateria("Precalculo");
-        Estudiantes[4].AgregarTabla(10);
-        Estudiantes[4].AgregarTabla(15);
-        Estudiantes[4].AgregarTabla(30);
-        Estudiantes[4].AgregarTabla(30);
-        Estudiantes[4].AgregarMateria("Calculo 1");
-        Estudiantes[4].AgregarTabla(15);
-        Estudiantes[4].AgregarTabla(10);
-        Estudiantes[4].AgregarTabla(20);
-        Estudiantes[4].AgregarTabla(10);
-        Estudiantes[4].AgregarMateria("Fisica 1");
-        Estudiantes[4].AgregarTabla(10);
-        Estudiantes[4].AgregarTabla(10);
-        Estudiantes[4].AgregarTabla(20);
-        Estudiantes[4].AgregarTabla(10);
-        
+
+        //Datos de estudiante 3004
+        Estudiantes[4].setnombreM(1, 0, "Precalculo");
+        Estudiantes[4].setdato(1, 1, 10);
+        Estudiantes[4].setdato(1, 2, 15);
+        Estudiantes[4].setdato(1, 3, 30);
+        Estudiantes[4].setdato(1, 4, 30);
+        Estudiantes[4].setdato(1, 6, Estudiantes[4].AgregarTabla(1));
+
+        Estudiantes[4].setnombreM(2, 0, "Calculo I");
+        Estudiantes[4].setdato(2, 1, 15);
+        Estudiantes[4].setdato(2, 2, 10);
+        Estudiantes[4].setdato(2, 3, 30);
+        Estudiantes[4].setdato(2, 4, 30);
+        Estudiantes[4].setdato(2, 6, Estudiantes[4].AgregarTabla(2));
+
+        Estudiantes[4].setnombreM(3, 0, "Fisica I");
+        Estudiantes[4].setdato(3, 1, 10);
+        Estudiantes[4].setdato(3, 2, 10);
+        Estudiantes[4].setdato(3, 3, 20);
+        Estudiantes[4].setdato(3, 4, 10);
+        Estudiantes[4].setdato(3, 6, Estudiantes[4].AgregarTabla(3));
+
         //Estudaintes ya existentes e ingresados al arbol
         asginacion.agregar_nodo(3003);
         asginacion.agregar_nodo(3001);
         asginacion.agregar_nodo(3005);
-        asginacion.agregar_nodo(3002);
         asginacion.agregar_nodo(3004);
-        
-        
+        asginacion.agregar_nodo(3002);
+
         //Datos de estudiante 3005
-        
         int dato = 0;
         int opc = 0;
         int dato1 = 0;
@@ -173,13 +161,12 @@ public class Proyecto1 {
             System.out.println("8.... Ingreso de asignaciones");
             System.out.println("9.... Listado de cursos asignados por estudiante");
             System.out.println("10... Salir");
-            
+
             opc = Entrada.nextInt();
             switch (opc) {
                 case 1 -> {
-                    //Asigancion de un curso o crecion de un curso
-                    if (CU < 20)
-                    {
+                    //Asigancion de un curso o crecion de un curso -->listo
+                    if (CU < 20) {
                         System.out.println("Diga el nombre del curso");
                         nombre = Nombre.nextLine();
                         System.out.println("Diga el Id del curso");
@@ -194,7 +181,7 @@ public class Proyecto1 {
 
                 }
                 case 2 -> {
-                    //Asignacion de estudiantes o creacion de un estudiante
+                    //Asignacion de estudiantes o creacion de un estudiante--:> listo
                     if (ES < 20) {
                         System.out.println("Diga el nombre del Estudiante");
                         nombre = Nombre.nextLine();
@@ -204,7 +191,7 @@ public class Proyecto1 {
                         dato1 = Entrada.nextInt();
                         System.out.println("Diga el correo del estudiante");
                         correo = Nombre.nextLine();
-                        Estudiantes[ES] = new Estudiante(dato, nombre, dato1, correo);
+                        Estudiantes[ES] = new Estudiante(dato, nombre, dato1, correo, Tabla);
                         asginacion.agregar_nodo(Estudiantes[ES].getCarnet());
                         ES++;
                     } else {
@@ -296,11 +283,12 @@ public class Proyecto1 {
 
                     System.out.println("Diga el nombre del curso a ingresar notas");
                     tipo = Axuliar.nextLine();
-                    for (int i = 0; i < ES; i++) {
+
+                    for (int i = dato1; i < ES; i++) {
                         if ((Estudiantes[i].getCarnet() == dato1)) {
                             Nom = true;
                             for (int j = 1; j < 20; j++) {
-                                
+
                                 if (Estudiantes[i].getCurso(j).equals(nombre)) {
                                     Cu = true;
                                     break;
@@ -315,10 +303,9 @@ public class Proyecto1 {
                     if (Cu && Nom) {//<= Agregar metodo para agregar mas notas del cada estudiante
                         //Agregar la parte de validacion la asignacion
 
-                        
-                        for (int i = 0; i < ES; i++) {
+                        for (int i = dato1; i < ES; i++) {
                             if (tipo.equals(Estudiantes[i].getCurso(i))) {
-                                for (int j = 0; j < 7; j++) {
+                                for (int j = 1; j < 4; j++) {
                                     System.out.println("Diga la nota a agregar");
                                     dato = Entrada.nextInt();
                                     Estudiantes[i].AgregarTabla(dato);
@@ -326,13 +313,13 @@ public class Proyecto1 {
                             }
                         }
                         //Agregar nota de evaluacion reposicion
-                        for (int i = 1; i < ES; i++) {
+                        for (int i = dato1; i < ES; i++) {
                             for (int j = 1; j < 7; j++) {
                                 int convert = Integer.parseInt(Estudiantes[i].nota(j));
-                                if (convert <61) {
+                                if (convert < 61) {
                                     System.out.println("Diga la nota de evaluacion reposicion");
-                                    dato1=Entrada.nextInt();
-                                    Estudiantes[i].agregarER(dato1, j);
+                                    dato = Entrada.nextInt();
+                                    Estudiantes[i].agregarER(dato, j);
                                 }
                             }
                         }
@@ -343,42 +330,54 @@ public class Proyecto1 {
 
                 }
                 case 8 -> {
-                    
+
                     // asignaciones
                     System.out.println("diga el carnet del estudiante");
-                    dato= Entrada.nextInt();
-                    
+                    dato = Entrada.nextInt();
+                    System.out.println("diga la materia a asignar:");
+                    correo = Nombre.nextLine();
+                    //Buscando el estudiante en el arreglo
                     for (int i = 0; i < ES; i++) {
-                        if (Estudiantes[i].getCarnet()==dato) {
+                        if (Estudiantes[i].getCarnet() == dato) {
                             ver = true;
-                            dato =i;
+                            dato1 = i;
+                            break;
                         }
                     }
-                    if (ver) {
-                        System.out.println("diga la materia a asignar:");
-                        correo= Nombre.nextLine();
-                        if (Estudiantes[dato1].buscarmateria(correo)) {
-                            Estudiantes[dato1].AgregarMateria(correo);
-                        }else{
-                            System.out.println("Ese curso ya lo tiene asignado el estudiante.");
+                    ver = false;
+                    //Buscando el curso en el arreglo de cursos
+                    for (int i = 0; i < CU; i++) {
+                        if (Cursos[i].getNombre().equals(correo)) {
+                            ver = true;
+                            break;
                         }
-                    }else{
-                        System.out.println("Estudiante no encontrado.");
+                    }
+                    //Verificando 
+                    if (ver && Estudiantes[dato1].buscarmateria(correo)) {
+                        Estudiantes[dato1].AgregarMateria(correo);
+
+                    } else {
+                        System.out.println("Estudiante no encontrado o el curso ya lo tiene asignado el estudiante.");
                     }
 
                 }
-                case 9->{
-                    //Mostar listado de cursos de los estudiantes
+                case 9 -> {
+                    //Mostrar dato-> listo
+
                     for (int i = 0; i < ES; i++) {
-                        System.out.println("Los cursos asignados de: "+Estudiantes[i].getNombre()+" , "+Estudiantes[i].getCarnet());
+                        System.out.println("Los cursos asignados de: " + Estudiantes[i].getNombre() + " , " + Estudiantes[i].getCarnet());
                         System.out.println("");
-                        Estudiantes[i].mostrarTabla();
-                        System.out.println("--------------------------------------------------------------");
+                        for (int j = 0; j < 20; j++) {
+                            for (int k = 0; k < 7; k++) {
+                                System.out.print("|"+Estudiantes[i].getdato(j, k)+"|");
+                            }
+                            System.out.println("");
+                        }
                     }
-                
+
                 }
-                case 10->{
-                est=false;
+                case 10 -> {
+                    est = false;
                 }
 
                 default -> {

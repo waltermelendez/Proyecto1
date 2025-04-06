@@ -9,27 +9,33 @@ package clases.proyecto1;
  * @author walter
  */
 public class Estudiante {
+
     private int Carnet;
     private String Nombre;
     private int Telefono;
     private String Correo;
     private boolean Estado;
-    private String  [] [] tab= new String [20][7];
+    private String[][] tab = new String[20][7];
     private int contadornota;
 
-    public Estudiante(int Carnet, String Nombre, int Telefono, String Correo) {
+    public Estudiante(int Carnet, String Nombre, int Telefono, String Correo, String[][] TAB) {
         this.Carnet = Carnet;
         this.Nombre = Nombre;
         this.Telefono = Telefono;
         this.Correo = Correo;
-        Estado=true;
-       this.tab=tab;
+        Estado = true;
+        this.tab = new String[TAB.length][TAB[0].length];
+        for (int i = 0; i < TAB.length; i++) {
+            for (int j = 0; j < TAB[0].length; j++) {
+                this.tab[i][j] = TAB[i][j];
+            }
+        }
     }
 
     public void setTab(String[][] tab) {
         this.tab = tab;
     }
-    
+
     public Estudiante() {
     }
 
@@ -40,7 +46,7 @@ public class Estudiante {
     public void setEstado(boolean Estado) {
         this.Estado = Estado;
     }
-    
+
     public int getCarnet() {
         return Carnet;
     }
@@ -72,95 +78,61 @@ public class Estudiante {
     public void setCorreo(String Correo) {
         this.Correo = Correo;
     }
-    
-    public void AgregarTabla(int nota){//Metodo para agregar notas en la matriz
-       
-       String convert = Integer.toString(nota);
-        for (int i = 1; i < 20; i++) {
-            for (int j = 1; j < 5; j++) {
-                if (this.tab[i][j].equals("0")) {
-                    this.tab[i][j]=convert;
-                    //System.out.println(tab[i][j]);
-                    
-                    i=20;//Break del ciclo de i
-                    break;
-                }
-                
-                
-            }
-        }
-       //metodo de suma de la nota final
-       int num=0;
-       int total=0;
-        for (int i = 1; i < 20; i++) {
-            for (int j = 1; j < 6; j++) {
-                convert=this.tab[i][j];
-                num=Integer.parseInt(convert);
-                total=total+num;
-            }
-            
-            this.tab[i][6]=Integer.toString(total);
-            total =0;
-            
-        }
-        
-    }
-    public String nota(int i){//Motodo para ver la bota final
-    return tab[i][6];
-    }
-    
-    public void agregarER(int dato1,int i){//metodo de suma de la nota final
-        String convert= Integer.toString(dato1);
-    tab[i][5]=convert;
-    
-    
-    
-       int num=0;
-       int total=0;
-       for (int k = 1; k < 6; k++) {
-                convert=this.tab[i][k];
-                num=Integer.parseInt(convert);
-                if (k!=4) {
-               total=total+num;
-           }
-            }
-    this.tab[i][6]=Integer.toString(total);
-    }
-    
-    public void AgregarMateria(String Materia){ //Metodo para agregar materias en la matriz
-     for (int i = 1; i < 20; i++) {
 
-            if (tab[i][0].equals("0")) {
-                tab[i][0]=Materia;
-               this.contadornota=i;
-                break;
-            } 
-        }
-  
+    public void setdato(int i, int j, int k) {
+        String convert = Integer.toString(k);
+        tab[i][j] = convert;
+
     }
+
+    public void setnombreM(int i, int j, String k) {
+
+        tab[i][j] = k;
+
+    }
+
+    public String getdato(int i, int j) {
+        return tab[i][j];
+    }
+
+    public int AgregarTabla(int i) {//Metodo para sumar notas en la matriz
+        int total=0;
+        String convert;
+        for (int j = 1; j < 5; j++) {
+            convert=tab[i][j];
+            total=total+Integer.parseInt(convert);
+        }
+        return total;
+
+    }
+
+    public String nota(int i) {//Motodo para ver la bota final
+        return tab[i][6];
+    }
+
+    public void agregarER(int dato1, int i) {//metodo de suma de la nota final
+        String convert = Integer.toString(dato1);
+        tab[i][5] = convert;
+
+        int num = 0;
+        int total = 0;
+        for (int k = 1; k < 6; k++) {
+            convert = this.tab[i][k];
+            num = Integer.parseInt(convert);
+            if (k != 4) {
+                total = total + num;
+            }
+        }
+        this.tab[i][6] = Integer.toString(total);
+    }
+
     //Funcion para ver el curso a buscar
-    public String getCurso(int i){
-    String r= tab[i][0];
-    return r;
+    public String getCurso(int i) {
+        String r = tab[i][0];
+        return r;
     }
-    
-    //Imrprimir la tabla de cada estudiante
-    public void mostrarTabla(){
-        for (int i = 0; i < contadornota; i++) {
-            if (tab[i][0].equals("0")) {
-                break;
-            }else{
-            for (int j = 0; j < 7; j++) {
-                System.out.print("| "+tab[i][j]+" |");
-            }
-            System.out.println(" ");
-            }
-            
-            
-        }
-    }
-    
-    public boolean buscarmateria(String i){
+
+    public boolean buscarmateria(String i) {
         for (int j = 1; j < 20; j++) {
             if (tab[j][0].equals(i)) {
                 return false;
@@ -168,5 +140,5 @@ public class Estudiante {
         }
         return true;
     }
-    
+
 }

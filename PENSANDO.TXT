@@ -38,6 +38,16 @@ Verde-Listo
 Naranja -instrucciones simples
 Amarillo-Parcialmente listo
 Azul Impornatnte
+
+
+@@@ALERTA
+
+FALTA EL METODO PARA SUMAR CON ER
+VERIFICAR CODIGO
+HACER LA DOCUMENTACION
+
+
+
  
 
 

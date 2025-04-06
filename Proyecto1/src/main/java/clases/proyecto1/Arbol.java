@@ -33,6 +33,7 @@ public class Arbol {
             if(Auxiliar==null)
             {
             padre.Izq=nuevo;
+            
             return;//Sirve para final el metodo.
             }
         }else //Cuando es mayor
@@ -40,6 +41,7 @@ public class Arbol {
         Auxiliar= Auxiliar.Der;
             if (Auxiliar==null) {
                 padre.Der=nuevo;
+                
              return;
             }
         }
@@ -69,10 +71,10 @@ return raiz == null;
             while (aux.Carnet!=d) {
                 if (d<aux.Carnet) {
                     aux=aux.Izq;
-                    i++;
+                   i++;
                 } else {
                     aux=aux.Der;
-                    i++;
+                    i=2+i;
                 }
             }
             if (aux==null) {

@@ -12,7 +12,7 @@ public class Nodo {
     public int Carnet;
     public Nodo Izq;
     public Nodo Der;
-
+   
     public Nodo(int Carnet) {
         this.Carnet = Carnet;
         this.Der=null;
