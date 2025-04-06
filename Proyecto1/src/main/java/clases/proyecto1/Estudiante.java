@@ -15,6 +15,7 @@ public class Estudiante {
     private String Correo;
     private boolean Estado;
     private String  [] [] tab= new String [20][7];
+    private int contadornota;
 
     public Estudiante(int Carnet, String Nombre, int Telefono, String Correo) {
         this.Carnet = Carnet;
@@ -108,10 +109,10 @@ public class Estudiante {
     return tab[i][6];
     }
     
-    public void agregarER(int dato1,int i){
+    public void agregarER(int dato1,int i){//metodo de suma de la nota final
         String convert= Integer.toString(dato1);
     tab[i][5]=convert;
-    //metodo de suma de la nota final
+    
     
     
        int num=0;
@@ -119,7 +120,9 @@ public class Estudiante {
        for (int k = 1; k < 6; k++) {
                 convert=this.tab[i][k];
                 num=Integer.parseInt(convert);
-                total=total+num;
+                if (k!=4) {
+               total=total+num;
+           }
             }
     this.tab[i][6]=Integer.toString(total);
     }
@@ -129,6 +132,7 @@ public class Estudiante {
 
             if (tab[i][0].equals("0")) {
                 tab[i][0]=Materia;
+               this.contadornota=i;
                 break;
             } 
         }
@@ -142,13 +146,27 @@ public class Estudiante {
     
     //Imrprimir la tabla de cada estudiante
     public void mostrarTabla(){
-        for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < contadornota; i++) {
+            if (tab[i][0].equals("0")) {
+                break;
+            }else{
             for (int j = 0; j < 7; j++) {
                 System.out.print("| "+tab[i][j]+" |");
             }
             System.out.println(" ");
+            }
+            
+            
         }
     }
     
+    public boolean buscarmateria(String i){
+        for (int j = 1; j < 20; j++) {
+            if (tab[j][0].equals(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
     
 }

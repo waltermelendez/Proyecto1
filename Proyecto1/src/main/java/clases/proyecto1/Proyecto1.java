@@ -59,12 +59,7 @@ public class Proyecto1 {
         Cursos[3] = new Curso(1, 6, "Calculo II");
         Cursos[4] = new Curso(1, 4, "Fisica II");
 
-        //Estudaintes ya existentes e ingresados al arbol
-        asginacion.agregar_nodo(3001);
-        asginacion.agregar_nodo(3002);
-        asginacion.agregar_nodo(3003);
-        asginacion.agregar_nodo(3004);
-        asginacion.agregar_nodo(3005);
+        
 
         
        
@@ -147,6 +142,14 @@ public class Proyecto1 {
         Estudiantes[4].AgregarTabla(20);
         Estudiantes[4].AgregarTabla(10);
         
+        //Estudaintes ya existentes e ingresados al arbol
+        asginacion.agregar_nodo(3003);
+        asginacion.agregar_nodo(3001);
+        asginacion.agregar_nodo(3005);
+        asginacion.agregar_nodo(3002);
+        asginacion.agregar_nodo(3004);
+        
+        
         //Datos de estudiante 3005
         
         int dato = 0;
@@ -157,7 +160,7 @@ public class Proyecto1 {
         String tipo = "";
 
         boolean est = true;
-        boolean ver = true;
+        boolean ver = false;
         do {
             System.out.println("diga una opc");
             System.out.println("1.... Asignacion de cursos.");
@@ -174,8 +177,9 @@ public class Proyecto1 {
             opc = Entrada.nextInt();
             switch (opc) {
                 case 1 -> {
-                    //Asigancion de un curso
-                    if (CU < 20) {
+                    //Asigancion de un curso o crecion de un curso
+                    if (CU < 20)
+                    {
                         System.out.println("Diga el nombre del curso");
                         nombre = Nombre.nextLine();
                         System.out.println("Diga el Id del curso");
@@ -190,7 +194,7 @@ public class Proyecto1 {
 
                 }
                 case 2 -> {
-                    //Asignacion de estudiantes
+                    //Asignacion de estudiantes o creacion de un estudiante
                     if (ES < 20) {
                         System.out.println("Diga el nombre del Estudiante");
                         nombre = Nombre.nextLine();
@@ -254,6 +258,7 @@ public class Proyecto1 {
                         if (Estudiantes[i].getCarnet() == dato) {
                             Estudiantes[i].setEstado(false);
                             System.out.println("El nombre del estudiante que fue desactivado fue de:" + Estudiantes[i].getNombre());
+                            //Anaidir metodo para desactivar estudiantes
                             break;
 
                         }
@@ -338,25 +343,27 @@ public class Proyecto1 {
 
                 }
                 case 8 -> {
-                    //Ingreso de asignaciones
-                    System.out.println("Diga el curso que desea asignar");
-                    nombre = Nombre.nextLine();
-                    for (int i = 0; i < Cursos.length; i++) {
-                        if (nombre.equals(Cursos[i].getNombre())) {
-                            System.out.println("El no se puede agregar una clase que ya exisite.");
-                            ver = false;
-                            break;
+                    
+                    // asignaciones
+                    System.out.println("diga el carnet del estudiante");
+                    dato= Entrada.nextInt();
+                    
+                    for (int i = 0; i < ES; i++) {
+                        if (Estudiantes[i].getCarnet()==dato) {
+                            ver = true;
+                            dato =i;
                         }
                     }
                     if (ver) {
-                        if (CU < 20) {
-                            CU++;
-                            Cursos[CU].setNombre(nombre);
-                            System.out.println("Se ha aniadido el curso en el ");
-                        } else {
-                            System.out.println("Ya no es posible agregar mas cursos.");
+                        System.out.println("diga la materia a asignar:");
+                        correo= Nombre.nextLine();
+                        if (Estudiantes[dato1].buscarmateria(correo)) {
+                            Estudiantes[dato1].AgregarMateria(correo);
+                        }else{
+                            System.out.println("Ese curso ya lo tiene asignado el estudiante.");
                         }
-
+                    }else{
+                        System.out.println("Estudiante no encontrado.");
                     }
 
                 }
