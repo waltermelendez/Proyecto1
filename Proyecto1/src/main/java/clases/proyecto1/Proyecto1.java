@@ -130,10 +130,7 @@ public class Proyecto1 {
         Estudiantes[4].setdato(3, 3, 20);
         Estudiantes[4].setdato(3, 4, 10);
         Estudiantes[4].setdato(3, 6, Estudiantes[4].AgregarTabla(3));
-
-        Estudiantes[5] = new Estudiante(3006, "Walter", 456, "@", Tabla);
-        Estudiantes[5].setnombreM(1, 0, "Fisica I");
-        Estudiantes[5].setnombreM(2, 0, "Fisica II");
+        //Datos de estudiante 3005
 
         //Estudaintes ya existentes e ingresados al arbol
         asginacion.agregar_nodo(3003);
@@ -141,9 +138,7 @@ public class Proyecto1 {
         asginacion.agregar_nodo(3005);
         asginacion.agregar_nodo(3004);
         asginacion.agregar_nodo(3002);
-        asginacion.agregar_nodo(3006);
 
-        //Datos de estudiante 3005
         int dato = 0;
         int opc = 0;
         int dato1 = 0;
@@ -155,8 +150,10 @@ public class Proyecto1 {
         boolean est = true;
         boolean ver = false;
         boolean ver2 = false;
+        
         do {
-            System.out.println("diga una opc");
+            
+            System.out.println("Bienvenido, diga una opc");
             System.out.println("1.... Asignacion de cursos.");
             System.out.println("2.... Ingreso de estudiantes.");
             System.out.println("3.... Desactivacion de cursos.");
@@ -171,7 +168,7 @@ public class Proyecto1 {
             opc = Entrada.nextInt();
             switch (opc) {
                 case 1 -> {
-                    //Asigancion de un curso o crecion de un curso -->listo
+                    //Asigancion de un curso o crecion de un curso 
                     if (CU < 20) {
                         System.out.println("Diga el nombre del curso");
                         nombre = Nombre.nextLine();
@@ -187,7 +184,7 @@ public class Proyecto1 {
 
                 }
                 case 2 -> {
-                    //Asignacion de estudiantes o creacion de un estudiante--:> listo
+                    //Asignacion de estudiantes o creacion de un estudiante
                     if (ES < 20) {
                         System.out.println("Diga el nombre del Estudiante");
                         nombre = Nombre.nextLine();
@@ -213,16 +210,40 @@ public class Proyecto1 {
                     }
                     System.out.println("Diga el curso que desea desactivar");
                     nombre = Nombre.nextLine();
+                    //Buscando curso
                     for (int i = 0; i < CU; i++) {
                         if (Cursos[i].getNombre().equals(nombre)) {
-                            Cursos[i].setEstado(false);
-                            System.out.println("Se ha desactivado " + Cursos[i].getNombre());
+                            ver = true;
+                            dato2 = i;
                             break;
                         }
                     }
+                    //Buscando en los estudiantes
+                    if (ver) {
+                        for (int i = 0; i < ES; i++) {
+                            if (!Estudiantes[i].buscarmateria(nombre)) {
+                                if (Estudiantes[i].EF() && Estudiantes[i].ER()) {
+                                    System.out.println("El curso no se puede desactivar.");
+                                    ver2 = true;
+                                    break;
+                                }
+                            }
+                        }
+                        if (!ver2) {
+                            Cursos[dato2].setEstado(false);
+                            System.out.println("Se ha desactivado " + Cursos[dato2].getNombre());
+                            ver = false;
+                            ver2 = false;
+                        }
+                    } else {
+                        System.out.println("Curso no encontrado.");
+                        ver = false;
+                        ver2 = false;
+                    }
+
                 }
                 case 4 -> {
-                    //Activacion de cursos
+                    //Activacion de cursos 
                     for (int i = 0; i < CU; i++) {
                         if (!Cursos[i].isEstado()) {
                             System.out.println(Cursos[i].getNombre());
@@ -239,7 +260,7 @@ public class Proyecto1 {
                     }
                 }
                 case 5 -> {
-                    //Desactivacion de Estudiantes -> listo
+                    //Desactivacion de Estudiantes 
                     for (int i = 0; i < ES; i++) {
                         if (Estudiantes[i].isEstado()) {
                             System.out.println(Estudiantes[i].getNombre() + " " + Estudiantes[i].getCarnet());
@@ -251,11 +272,11 @@ public class Proyecto1 {
 
                     for (int i = dato1; i < ES; i++) {
                         if (Estudiantes[i].getCarnet() == dato) {
-
+                            //Buscando si ya tiene nota de evalcuaion final o de reposicion
                             if (Estudiantes[i].EF() && Estudiantes[i].ER()) {
                                 Estudiantes[i].setEstado(false);
                                 System.out.println("El nombre del estudiante que fue desactivado fue de:" + Estudiantes[i].getNombre());
-                                //Anaidir metodo para desactivar estudiantes
+
                                 break;
                             } else {
                                 System.out.println("El estudiante ya tiene nota final.");
@@ -267,7 +288,7 @@ public class Proyecto1 {
 
                 }
                 case 6 -> {
-                    //Activacion de estudiantes -> listo
+                    //Activacion de estudiantes
                     for (int i = 0; i < ES; i++) {
                         if (!Estudiantes[i].isEstado()) {
                             System.out.println(Estudiantes[i].getNombre() + " " + Estudiantes[i].getNombre());
@@ -288,14 +309,14 @@ public class Proyecto1 {
 
                 }
                 case 7 -> {
-                    //Ingreso de notas
+                    //Ingreso de notas 
                     System.out.println("Diga el carnet del estudiante:");
                     dato = Entrada.nextInt();
 
                     System.out.println("Diga el nombre del curso a ingresar notas");
                     tipo = Axuliar.nextLine();
                     dato1 = asginacion.buscarNodo(dato) - 1;
-                    for (int i = dato1; i < 6; i++) {
+                    for (int i = dato1; i < ES; i++) {
                         if (Estudiantes[i].getCarnet() == dato) {
                             ver = true;
                             dato2 = i;
@@ -316,34 +337,40 @@ public class Proyecto1 {
 
                             Estudiantes[dato2].setdato(Estudiantes[dato2].buscarM(tipo), i, dato1);
                         }
-                        
+
                         //Nota final
-                        dato=Estudiantes[dato2].AgregarTabla(Estudiantes[dato2].buscarM(tipo));
+                        dato = Estudiantes[dato2].AgregarTabla(Estudiantes[dato2].buscarM(tipo));
                         System.out.println(dato);
                         Estudiantes[dato2].setdato(Estudiantes[dato2].buscarM(tipo), 6, dato);
-                        
+
                         //Verificando si el estudiante ha ganado
-                        if (dato<61) {
+                        if (dato < 61) {
                             System.out.println("Diga la nota final del estudiante");
                             //Quitar la nota de evalucaion final
                             Estudiantes[dato2].setdato(Estudiantes[dato2].buscarM(tipo), 4, 0);
-                            
+
                             //La nota final
                             dato1 = Entrada.nextInt();
-                            
+
                             //Agregando la nota de evalcion de reposicion
                             Estudiantes[dato2].setdato(Estudiantes[dato2].buscarM(tipo), 5, dato1);
-                            dato=Estudiantes[dato2].AgregarTabla(Estudiantes[dato2].buscarM(tipo));
+                            dato = Estudiantes[dato2].AgregarTabla(Estudiantes[dato2].buscarM(tipo));
                             System.out.println(dato);
-                            
+
                             //Verificando si el estudiante ha ganado
-                            if (dato<61) {
-                                System.out.println("El estudiante: "+Estudiantes[dato2].getNombre()+" ha perdido la clase.");
-                            }else{
-                            System.out.println("El estudiante: "+Estudiantes[dato2].getNombre()+" ha ganado el curso.");
+                            if (dato < 61) {
+                                System.out.println("El estudiante: " + Estudiantes[dato2].getNombre() + " ha perdido la clase.");
+                                ver2 = false;
+                                ver = false;
+                            } else {
+                                System.out.println("El estudiante: " + Estudiantes[dato2].getNombre() + " ha ganado el curso.");
+                                ver2 = false;
+                                ver = false;
                             }
-                        }else{
-                            System.out.println("El estudiante: "+Estudiantes[dato2].getNombre()+" ha ganado el curso.");
+                        } else {
+                            System.out.println("El estudiante: " + Estudiantes[dato2].getNombre() + " ha ganado el curso.");
+                            ver2 = false;
+                            ver = false;
                         }
 
                     } else {
@@ -354,7 +381,7 @@ public class Proyecto1 {
                 }
                 case 8 -> {
 
-                    // asignaciones->listo
+                    // asignaciones
                     System.out.println("diga el carnet del estudiante");
                     dato = Entrada.nextInt();
                     System.out.println("diga la materia a asignar:");
@@ -390,7 +417,7 @@ public class Proyecto1 {
 
                 }
                 case 9 -> {
-                    //Mostrar dato-> listo
+                    //Mostrar dato
 
                     for (int i = 0; i < ES; i++) {
                         System.out.println("Los cursos asignados de: " + Estudiantes[i].getNombre() + " , " + Estudiantes[i].getCarnet());

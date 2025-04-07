@@ -152,6 +152,7 @@ public class Estudiante {
         }
         return 0;
     }
+    //Funcino para buscar un lugar vacio de un curso
     public int buscarvacio(){
     for (int j = 1; j < 20; j++) {
             if (tab[j][0].equals("0")) {

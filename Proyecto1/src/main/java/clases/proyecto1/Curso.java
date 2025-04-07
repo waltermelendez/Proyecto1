@@ -21,13 +21,7 @@ public class Curso {
         estado=true;
     }
 
-    public Curso() {
-    }
-
-    @Override
-    public String toString() {
-        return "Curso {" + "CodigoCurso=" + CodigoCurso + ", creditos=" + creditos + ", Nombre=" + Nombre + ", estado=" + estado + '}';
-    }
+    
 
     
     public int getCodigoCurso() {
