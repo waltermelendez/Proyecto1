@@ -140,5 +140,21 @@ public class Estudiante {
         }
         return true;
     }
+    public boolean EF(){
+        for (int i = 0; i < 20; i++) {
+            if (tab[i][5].equals("0")) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean ER(){
+        for (int i = 0; i < 20; i++) {
+            if (tab[i][6].equals("0")) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }

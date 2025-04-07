@@ -233,7 +233,7 @@ public class Proyecto1 {
                     }
                 }
                 case 5 -> {
-                    //Desactivacion de Estudiantes
+                    //Desactivacion de Estudiantes -> listo
                     for (int i = 0; i < ES; i++) {
                         if (Estudiantes[i].isEstado()) {
                             System.out.println(Estudiantes[i].getNombre() + " " + Estudiantes[i].getCarnet());
@@ -241,18 +241,28 @@ public class Proyecto1 {
                     }
                     System.out.println("Diga el carnet del estudiante al que quiera desactivar.");
                     dato = Entrada.nextInt();
-                    for (int i = 0; i < ES; i++) {
+                    dato1=asginacion.buscarNodo(dato)-1;
+                    
+                     for (int i = dato1; i < ES; i++) {
                         if (Estudiantes[i].getCarnet() == dato) {
-                            Estudiantes[i].setEstado(false);
-                            System.out.println("El nombre del estudiante que fue desactivado fue de:" + Estudiantes[i].getNombre());
+                            
+                            if (Estudiantes[i].EF()&&Estudiantes[i].ER()) {
+                                Estudiantes[i].setEstado(false);
+                                System.out.println("El nombre del estudiante que fue desactivado fue de:" + Estudiantes[i].getNombre());
                             //Anaidir metodo para desactivar estudiantes
                             break;
+                            }else{
+                                System.out.println("El estudiante ya tiene nota final.");
+                            }
+                            
 
                         }
+
                     }
+                    
                 }
                 case 6 -> {
-                    //Activacion de estudiantes
+                    //Activacion de estudiantes -> listo
                     for (int i = 0; i < ES; i++) {
                         if (!Estudiantes[i].isEstado()) {
                             System.out.println(Estudiantes[i].getNombre() + " " + Estudiantes[i].getNombre());
@@ -260,13 +270,15 @@ public class Proyecto1 {
                     }
                     System.out.println("Diga el nombre del estudiantes que desea activar");
                     dato = Entrada.nextInt();
-                    for (int i = 0; i < ES; i++) {
+                    dato1=asginacion.buscarNodo(dato)-1;
+                     
+                    for (int i = dato1; i < ES; i++) {
                         if (Estudiantes[i].getCarnet() == dato) {
                             Estudiantes[i].setEstado(true);
-                            System.out.println("Se ha activado al estudiante " + Estudiantes[i].getCarnet());
-                            break;
-
+                              System.out.println("El nombre del estudiante que fue desactivado fue de:" + Estudiantes[i].getNombre());
+                         
                         }
+
                     }
 
                 }

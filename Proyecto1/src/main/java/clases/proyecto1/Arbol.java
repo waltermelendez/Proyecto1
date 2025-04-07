@@ -74,7 +74,7 @@ return raiz == null;
                    i++;
                 } else {
                     aux=aux.Der;
-                    i=2+i;
+                    i++;
                 }
             }
             if (aux==null) {
