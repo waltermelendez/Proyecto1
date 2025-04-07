@@ -98,7 +98,7 @@ public class Estudiante {
     public int AgregarTabla(int i) {//Metodo para sumar notas en la matriz
         int total=0;
         String convert;
-        for (int j = 1; j < 5; j++) {
+        for (int j = 1; j < 6; j++) {
             convert=tab[i][j];
             total=total+Integer.parseInt(convert);
         }
@@ -110,21 +110,7 @@ public class Estudiante {
         return tab[i][6];
     }
 
-    public void agregarER(int dato1, int i) {//metodo de suma de la nota final
-        String convert = Integer.toString(dato1);
-        tab[i][5] = convert;
 
-        int num = 0;
-        int total = 0;
-        for (int k = 1; k < 6; k++) {
-            convert = this.tab[i][k];
-            num = Integer.parseInt(convert);
-            if (k != 4) {
-                total = total + num;
-            }
-        }
-        this.tab[i][6] = Integer.toString(total);
-    }
 
     //Funcion para ver el curso a buscar
     public String getCurso(int i) {
@@ -133,6 +119,7 @@ public class Estudiante {
     }
 
     public boolean buscarmateria(String i) {
+        //Metodo para las asignaciones
         for (int j = 1; j < 20; j++) {
             if (tab[j][0].equals(i)) {
                 return false;
@@ -155,6 +142,24 @@ public class Estudiante {
             }
         }
         return false;
+    }
+    public int buscarM(String i) {
+        //Metodo para las asignaciones
+        for (int j = 1; j < 20; j++) {
+            if (tab[j][0].equals(i)) {
+                return j;
+            }
+        }
+        return 0;
+    }
+    public int buscarvacio(){
+    for (int j = 1; j < 20; j++) {
+            if (tab[j][0].equals("0")) {
+                return j;
+            }
+        }
+        return 0;
+    
     }
 
 }

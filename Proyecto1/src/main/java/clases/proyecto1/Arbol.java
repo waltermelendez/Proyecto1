@@ -49,9 +49,7 @@ public class Arbol {
     }
     
     }
-    public boolean estavacio(){
-return raiz == null;
-}
+
     public void InOrder(Nodo R){
         if (R!=null) {
             InOrder(R.Izq);
